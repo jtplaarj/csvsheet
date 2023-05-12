@@ -1,23 +1,10 @@
 """
-This is a skeleton file that can serve as a starting point for a Python
-console script. To run this script uncomment the following lines in the
-``[options.entry_points]`` section in ``setup.cfg``::
+csvsheet - A simple CSV calculator
 
-    console_scripts =
-         fibonacci = csvsheet.skeleton:run
+This module and command line application allows to perform simple calculations on CSV files.
+It is not intended to be a full spreadsheet replacement, but rather a simple tool to perform basic math operations on CSV files.
+The main reason is that CSV is far friendlier to version control systems than binary formats like XLSX.
 
-Then run ``pip install .`` (or ``pip install -e .`` for editable mode)
-which will install the command ``fibonacci`` inside your current environment.
-
-Besides console scripts, the header (i.e. until ``_logger``...) of this file can
-also be used as template for Python modules.
-
-Note:
-    This file can be renamed depending on your needs or safely removed if not needed.
-
-References:
-    - https://setuptools.pypa.io/en/latest/userguide/entry_point.html
-    - https://pip.pypa.io/en/stable/reference/pip_install
 """
 
 import argparse
@@ -41,7 +28,7 @@ _logger = logging.getLogger(__name__)
 # ---- Python API ----
 # The functions defined in this section can be imported by users in their
 # Python scripts/interactive interpreter, e.g. via
-# `from csvsheet.skeleton import fib`,
+# `from csvsheet.csvsheet import sanitize_cell`,
 # when using this Python module as a library.
 
 
