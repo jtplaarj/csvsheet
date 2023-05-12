@@ -1,26 +1,20 @@
-.. todo:: THIS IS SUPPOSED TO BE AN EXAMPLE. MODIFY IT ACCORDING TO YOUR NEEDS!
+The document assumes you are using a source repository service that promotes a
+contribution model similar to `GitHub's fork and pull request workflow`_.
+While this is true for the majority of services (like GitHub, GitLab,
+BitBucket), it might not be the case for private repositories (e.g., when
+using Gerrit).
 
-   The document assumes you are using a source repository service that promotes a
-   contribution model similar to `GitHub's fork and pull request workflow`_.
-   While this is true for the majority of services (like GitHub, GitLab,
-   BitBucket), it might not be the case for private repositories (e.g., when
-   using Gerrit).
+Also notice that the code examples might refer to GitHub URLs or the text
+might use GitHub specific terminology (e.g., *Pull Request* instead of *Merge
+Request*).
 
-   Also notice that the code examples might refer to GitHub URLs or the text
-   might use GitHub specific terminology (e.g., *Pull Request* instead of *Merge
-   Request*).
+Please make sure to check the document having these assumptions in mind
+and update things accordingly.
 
-   Please make sure to check the document having these assumptions in mind
-   and update things accordingly.
-
-.. todo:: Provide the correct links/replacements at the bottom of the document.
-
-.. todo:: You might want to have a look on `PyScaffold's contributor's guide`_,
-
-   especially if your project is open source. The text should be very similar to
-   this template, but there are a few extra contents that you might decide to
-   also include, like mentioning labels of your issue tracker or automated
-   releases.
+especially if your project is open source. The text should be very similar to
+this template, but there are a few extra contents that you might decide to
+also include, like mentioning labels of your issue tracker or automated
+releases.
 
 
 ============
@@ -101,11 +95,8 @@ and use Python's built-in web server for a preview in your web browser
 Code Contributions
 ==================
 
-.. todo:: Please include a reference or explanation about the internals of the project.
-
-   An architecture description, design principles or at least a summary of the
-   main concepts will make it easy for potential contributors to get started
-   quickly.
+   All inteligence of the system is provided by the :meth:`csvsheet.csvsheet.sanitize_cell` function.
+   Most of the changes should go there, for example to add new sanitization rules.
 
 Submit an issue
 ---------------
@@ -177,7 +168,7 @@ Implement your changes
 
    Please make sure to see the validation messages from |pre-commit|_ and fix
    any eventual issues.
-   This should automatically use flake8_/black_ to check/fix the code style
+   This should automatically use ruff_/shed_ to check/fix the code style
    in a way that is compatible with the project.
 
    .. important:: Don't forget to add unit tests and documentation in case your
@@ -304,9 +295,11 @@ on PyPI_, the following steps can be used to release a new version for
 .. |virtualenv| replace:: ``virtualenv``
 .. |pre-commit| replace:: ``pre-commit``
 .. |tox| replace:: ``tox``
+.. |ruff| replace:: ``ruff``
+.. |shed| replace:: ``shed``
 
-
-.. _black: https://pypi.org/project/black/
+.. _ruff: https://github.com/charliermarsh/ruff
+.. _shed: https://github.com/Zac-HD/shed
 .. _CommonMark: https://commonmark.org/
 .. _contribution-guide.org: https://www.contribution-guide.org/
 .. _creating a PR: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
