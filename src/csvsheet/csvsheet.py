@@ -53,6 +53,10 @@ def sanitize_cell(cell: str, mathdelimiter: str = "=") -> str:
         # formula!!!
         # remove the '='
         cell = cell[1:]
+        # eliminate all spaces
+        cell = cell.replace(" ", "")
+        # eliminate everything after a comment (#)
+        cell = cell.split("#")[0]
         # sanitize the input
         cell_copy = cell
         # delete all numbers using regex
