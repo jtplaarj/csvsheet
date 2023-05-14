@@ -1,3 +1,5 @@
+"""testing csvsheet module."""
+
 from typing import Union
 
 import pytest
@@ -11,7 +13,7 @@ __license__ = "MIT"
 
 # create a fixture to test sanitize_cell
 @pytest.mark.parametrize(
-    "cell, expected",
+    ("cell", "expected"),
     [
         ("=1+1", 2),
         ("=math.pi", 3.141592653589793),
@@ -30,13 +32,13 @@ def test_sanitize_cell(
     cell: str,
     expected: Union[str, int, float],
 ):
-    """Test sanitize_cell"""
+    """Test sanitize_cell."""
     assert sanitize_cell(cell) == expected
 
 
 # parametrize the main function
 @pytest.mark.parametrize(
-    "args, expected",
+    ("args", "expected"),
     [
         (
             ["tests/test_a.csv"],
@@ -78,14 +80,14 @@ def test_sanitize_cell(
     ],
 )
 def test_main(capsys, args, expected):
-    """CLI Tests, happy path"""
+    """CLI Tests, happy path."""
     main(args)
     captured = capsys.readouterr()
     assert captured.out == expected
 
 
 def test_simple_run():
-    """Test run entry point"""
+    """Test run entry point."""
     with pytest.raises(SystemExit) as pytest_wrapped_e:
         run()
     assert pytest_wrapped_e.type == SystemExit

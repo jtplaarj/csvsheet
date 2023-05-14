@@ -1,9 +1,10 @@
-"""
-csvsheet - A simple CSV calculator
+"""csvsheet - A simple CSV calculator.
 
-This module and command line application allows to perform simple calculations on CSV files.
-It is not intended to be a full spreadsheet replacement, but rather a simple tool to perform basic math operations on CSV files.
-The main reason is that CSV is far friendlier to version control systems than binary formats like XLSX.
+This module and command line application allows to perform calculations on CSV files.
+It is not intended to be a full spreadsheet replacement,
+but rather a simple tool to perform basic math operations on CSV files.
+The main reason is that CSV is far friendlier to version control systems
+than binary formats like XLSX.
 
 """
 
@@ -33,16 +34,19 @@ _logger = logging.getLogger(__name__)
 
 
 def sanitize_cell(cell: str, mathdelimiter: str = "=") -> str:
-    """Sanitize a cell
+    """Sanitize a cell.
 
     Args:
+    ----
         cell (str): string from CSV cell
         mathdelimiter (str, optional): delimiter to identify formulas. Defaults to "=".
 
     Raises:
+    ------
         ValueError: cell contains invalid functions
 
     Returns:
+    -------
         str: Sanitized string to be used in eval()
     """
     if cell.startswith(mathdelimiter):
@@ -62,7 +66,8 @@ def sanitize_cell(cell: str, mathdelimiter: str = "=") -> str:
         # if cell_copy is not empty, error
         if cell_copy != "":
             # error
-            raise ValueError(f"Error: formula contains invalid characters: {cell_copy}")
+            msg = f"Error: formula contains invalid characters: {cell_copy}"
+            raise ValueError(msg)
         cell = eval(cell)
 
     else:
@@ -78,13 +83,15 @@ def sanitize_cell(cell: str, mathdelimiter: str = "=") -> str:
 
 
 def parse_args(args: list[str]) -> argparse.Namespace:
-    """Parse command line parameters
+    """Parse command line parameters.
 
     Args:
+    ----
       args (List[str]): command line parameters as list of strings
           (for example  ``["--help"]``).
 
     Returns:
+    -------
       :obj:`argparse.Namespace`: command line parameters namespace
     """
     parser = argparse.ArgumentParser(description="Just a Fibonacci demonstration")
@@ -157,9 +164,10 @@ def parse_args(args: list[str]) -> argparse.Namespace:
 
 
 def setup_logging(loglevel: int):
-    """Setup basic logging
+    """Setup basic logging.
 
     Args:
+    ----
       loglevel (int): minimum loglevel for emitting messages
     """
     logformat = "[%(asctime)s] %(levelname)s:%(name)s:%(message)s"
@@ -169,31 +177,26 @@ def setup_logging(loglevel: int):
 
 
 def main(args: list[str]):
-    """The main function dealing with command line parameters and input/output
+    """Deals with command line parameters and input/output.
 
     Args:
+    ----
       args (List[str]): command line parameters as list of strings
           (for example  ``["--verbose", "42"]``).
     """
-    args = parse_args(args)
-    setup_logging(args.loglevel)
+    args_parsed = parse_args(args)
+    setup_logging(args_parsed.loglevel)
 
-    _logger.info(f"Starting csvsheet calculation: {args}")
-    # open file
-    # avoid unused import warning
-    math.pi
+    _logger.info(f"Starting csvsheet calculation: {args_parsed}")
 
     # create delimiter and quotechar
-    delimiter = args.delimiter
-    quotechar = args.quotechar
+    delimiter = args_parsed.delimiter
+    quotechar = args_parsed.quotechar
 
     # open reader
-    csvreader = csv.reader(args.input, delimiter=delimiter, quotechar=quotechar)
+    csvreader = csv.reader(args_parsed.input, delimiter=delimiter, quotechar=quotechar)
     # open writer
-    if args.output == "-":
-        fh = sys.stdout
-    else:
-        fh = open(args.output, "w")
+    fh = sys.stdout if args_parsed.output == "-" else open(args_parsed.output, "w")
     csvwriter = csv.writer(fh, delimiter=delimiter, quotechar=quotechar)
     # loop
     for row_idx, row in enumerate(csvreader):
@@ -205,7 +208,7 @@ def main(args: list[str]):
             # sanitize cell
             _logger.debug(f" original cell: {cell}")
             try:
-                cell = sanitize_cell(cell, args.mathdelimiter)
+                cell = sanitize_cell(cell, args_parsed.mathdelimiter)
             except ValueError as e:
                 _logger.info(f"row {row_idx} col {col_idx}: {cell}")
                 _logger.error(e)
@@ -221,16 +224,16 @@ def main(args: list[str]):
         # write row
         csvwriter.writerow(row)
     # close reader
-    args.input.close()
+    args_parsed.input.close()
     # close writer
-    if args.output != "-":
+    if args_parsed.output != "-":
         fh.close()
 
     _logger.info("Script ends here")
 
 
 def run():
-    """Calls :func:`main` passing the CLI arguments extracted from :obj:`sys.argv`
+    """Calls :func:`main` passing the CLI arguments extracted from :obj:`sys.argv`.
 
     This function can be used as entry point to create console scripts with setuptools.
     """

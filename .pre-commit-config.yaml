@@ -26,7 +26,7 @@ repos:
   rev: "v0.0.265"
   hooks:
   - id: ruff
-    args: [--show-source, --fix, --exit-non-zero-on-fix]
+    args: [--show-source, --fix, --exit-non-zero-on-fix, --select=E, --select=F, --select=B, --select=W, --select=N, --select=EM, --select=EXE, --select=PYI, --select=PT, --select=Q, --select=RET]
 - repo: https://github.com/Zac-HD/shed
   rev: 2023.5.1
   hooks:
@@ -38,7 +38,7 @@ repos:
 #   hooks:
 #   - id: bandit
 #     exclude: '^tests'
-# - repo: https://github.com/pre-commit/mirrors-mypy
-#   rev: 'v1.3.0'  # Use the sha / tag you want to point at
-#   hooks:
-#   - id: mypy
+- repo: https://github.com/pre-commit/mirrors-mypy
+  rev: 'v1.3.0'  # Use the sha / tag you want to point at
+  hooks:
+  - id: mypy
