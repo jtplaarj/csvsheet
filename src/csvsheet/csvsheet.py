@@ -102,7 +102,7 @@ def parse_args(args: list[str]) -> argparse.Namespace:
     # add input file as positional argument
     parser.add_argument(
         "input",
-        help="Input CSV file to read",
+        help="Input CSV file to read. '-' for stdin",
         type=argparse.FileType("r"),
         metavar="INPUT_FILE",
     )
@@ -118,7 +118,7 @@ def parse_args(args: list[str]) -> argparse.Namespace:
         help="Output file to write result, if none given, \
             it will be writen to stdout",
         default="-",
-        type=str,
+        type=argparse.FileType("w"),
         metavar="OUTPUT_FILE",
     )
     parser.add_argument(
@@ -200,7 +200,7 @@ def main(args: list[str]):
     # open reader
     csvreader = csv.reader(args_parsed.input, delimiter=delimiter, quotechar=quotechar)
     # open writer
-    fh = sys.stdout if args_parsed.output == "-" else open(args_parsed.output, "w")
+    fh = args_parsed.output
     csvwriter = csv.writer(fh, delimiter=delimiter, quotechar=quotechar)
     # loop
     for row_idx, row in enumerate(csvreader):
