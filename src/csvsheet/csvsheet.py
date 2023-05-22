@@ -230,7 +230,7 @@ def main(args: list[str]):
     # close reader
     args_parsed.input.close()
     # close writer
-    if args_parsed.output != "-":
+    if args_parsed.output != sys.stdout:
         fh.close()
 
     _logger.info("Script ends here")
