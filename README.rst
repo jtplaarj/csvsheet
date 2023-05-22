@@ -4,12 +4,6 @@
     .. image:: https://api.cirrus-ci.com/github/<USER>/csvsheet.svg?branch=main
         :alt: Built Status
         :target: https://cirrus-ci.com/github/<USER>/csvsheet
-    .. image:: https://readthedocs.org/projects/csvsheet/badge/?version=latest
-        :alt: ReadTheDocs
-        :target: https://csvsheet.readthedocs.io/en/stable/
-    .. image:: https://img.shields.io/coveralls/github/<USER>/csvsheet/main.svg
-        :alt: Coveralls
-        :target: https://coveralls.io/r/<USER>/csvsheet
     .. image:: https://img.shields.io/conda/vn/conda-forge/csvsheet.svg
         :alt: Conda-Forge
         :target: https://anaconda.org/conda-forge/csvsheet
@@ -25,6 +19,9 @@
 .. image:: https://img.shields.io/pypi/v/csvsheet.svg
     :alt: PyPI-Server
     :target: https://pypi.org/project/csvsheet/
+.. image:: https://img.shields.io/coveralls/github/jtplaarj/csvsheet/main.svg
+    :alt: Coveralls
+    :target: https://coveralls.io/r/jtplaarj/csvsheet
 .. image:: https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold
     :alt: Project generated with PyScaffold
     :target: https://pyscaffold.org/
