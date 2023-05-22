@@ -3,6 +3,7 @@
 from typing import Union
 
 import pytest
+from hypothesis import example, given, strategies as st
 
 from csvsheet.csvsheet import main, run, sanitize_cell
 
@@ -38,6 +39,14 @@ def test_sanitize_cell(
 ):
     """Test sanitize_cell."""
     assert sanitize_cell(cell) == expected
+
+
+# check mathdelimiter
+@given(mathdelimiter=st.characters(blacklist_categories=("Cs", "Cc")))
+@example("=")
+def test_sanitize_cell_mathdelimiter(mathdelimiter: str):
+    """Test sanitize_cell with mathdelimiter."""
+    assert sanitize_cell(f"{mathdelimiter}1+1", mathdelimiter) == 2
 
 
 # parametrize the main function
