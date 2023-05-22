@@ -26,7 +26,7 @@ repos:
   rev: "v0.0.265"
   hooks:
   - id: ruff
-    args: [--show-source, --fix, --exit-non-zero-on-fix, --select=E, --select=F, --select=B, --select=W, --select=N, --select=EM, --select=EXE, --select=PYI, --select=PT, --select=Q, --select=RET]
+    args: [--show-source, --fix, --exit-non-zero-on-fix, --select=E, --select=F, --select=B, --select=W, --select=N, --select=EM, --select=EXE, --select=PYI, --select=PT, --select=Q, --select=RET, --select=SIM]
 - repo: https://github.com/Zac-HD/shed
   rev: 2023.5.1
   hooks:
