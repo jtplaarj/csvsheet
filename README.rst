@@ -27,8 +27,8 @@
     :target: https://pyscaffold.org/
 .. image:: https://img.shields.io/coveralls/github/jtplaarj/csvsheet/main.svg
     :alt: Coveralls
-    :target: https://coveralls.io/r/<USER>/csvsheet
-|
+    :target: https://coveralls.io/r/jtplaarj/csvsheet
+
 
 ========
 csvsheet
@@ -118,4 +118,4 @@ Note
 This project has been set up using PyScaffold 4.4.1. For details and usage
 information on PyScaffold see https://pyscaffold.org/.
 
-.. _extended docs: https://faker.readthedocs.io/en/stable/
+.. _extended docs: https://csvsheet.readthedocs.io/en/stable/

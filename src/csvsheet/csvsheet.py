@@ -37,16 +37,16 @@ def sanitize_cell(cell: str, mathdelimiter: str = "=") -> str:
     """Sanitize a cell.
 
     Args:
-    ----
+    -----
         cell (str): string from CSV cell
         mathdelimiter (str, optional): delimiter to identify formulas. Defaults to "=".
 
     Raises:
-    ------
+    -------
         ValueError: cell contains invalid functions
 
     Returns:
-    -------
+    --------
         str: Sanitized string to be used in eval()
     """
     if cell.startswith(mathdelimiter):
@@ -90,12 +90,12 @@ def parse_args(args: list[str]) -> argparse.Namespace:
     """Parse command line parameters.
 
     Args:
-    ----
+    -----
       args (List[str]): command line parameters as list of strings
           (for example  ``["--help"]``).
 
     Returns:
-    -------
+    --------
       :obj:`argparse.Namespace`: command line parameters namespace
     """
     parser = argparse.ArgumentParser(description="Just a Fibonacci demonstration")
@@ -171,7 +171,7 @@ def setup_logging(loglevel: int):
     """Setup basic logging.
 
     Args:
-    ----
+    -----
       loglevel (int): minimum loglevel for emitting messages
     """
     logformat = "[%(asctime)s] %(levelname)s:%(name)s:%(message)s"
@@ -184,7 +184,7 @@ def main(args: list[str]):
     """Deals with command line parameters and input/output.
 
     Args:
-    ----
+    -----
       args (List[str]): command line parameters as list of strings
           (for example  ``["--verbose", "42"]``).
     """
