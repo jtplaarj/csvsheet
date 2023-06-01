@@ -19,6 +19,9 @@
 .. image:: https://img.shields.io/pypi/v/csvsheet.svg
     :alt: PyPI-Server
     :target: https://pypi.org/project/csvsheet/
+.. image:: https://img.shields.io/coveralls/github/jtplaarj/csvsheet/main.svg
+    :alt: Coveralls
+    :target: https://coveralls.io/r/jtplaarj/csvsheet
 .. image:: https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold
     :alt: Project generated with PyScaffold
     :target: https://pyscaffold.org/
