@@ -4,12 +4,6 @@
     .. image:: https://api.cirrus-ci.com/github/<USER>/csvsheet.svg?branch=main
         :alt: Built Status
         :target: https://cirrus-ci.com/github/<USER>/csvsheet
-    .. image:: https://readthedocs.org/projects/csvsheet/badge/?version=latest
-        :alt: ReadTheDocs
-        :target: https://csvsheet.readthedocs.io/en/stable/
-    .. image:: https://img.shields.io/coveralls/github/<USER>/csvsheet/main.svg
-        :alt: Coveralls
-        :target: https://coveralls.io/r/<USER>/csvsheet
     .. image:: https://img.shields.io/conda/vn/conda-forge/csvsheet.svg
         :alt: Conda-Forge
         :target: https://anaconda.org/conda-forge/csvsheet
@@ -28,7 +22,9 @@
 .. image:: https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold
     :alt: Project generated with PyScaffold
     :target: https://pyscaffold.org/
-
+.. image:: https://img.shields.io/coveralls/github/jtplaarj/csvsheet/main.svg
+    :alt: Coveralls
+    :target: https://coveralls.io/r/<USER>/csvsheet
 |
 
 ========
@@ -54,12 +50,15 @@ The command line requires a single compulsory arugment, the CSV fileto process::
     csvsheet <file.csv> -o <output.csv> -d <delimiter> -q <quotechar> -m <equation_delimiter> -v -vv
     csvsheet --help
 
+The input file is required, if '-' is used, stdin is used.
 The output file is optional, if not provided, the output will be printed to stdout.
 The delimiter is also optional, if not provided, the default delimiter is `,`.
 The quotechar is also optional, if not provided, the default quotechar is `"`.
 The equation delimiter is also optional, if not provided, the default equation delimiter is `=`.
 
 The `-v` and `-vv` flags are optional, they are used to increase the verbosity of the output.
+
+Read the `extended docs`_ for extra information.
 
 Example
 =======
@@ -115,3 +114,5 @@ Note
 
 This project has been set up using PyScaffold 4.4.1. For details and usage
 information on PyScaffold see https://pyscaffold.org/.
+
+.. _extended docs: https://faker.readthedocs.io/en/stable/
